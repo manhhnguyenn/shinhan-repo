@@ -19,18 +19,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     try {
         // Cấu hình SMTP Hostinger
         $mail->isSMTP();
-        $mail->Host = 'smtp.hostinger.com';
+        
         $mail->SMTPAuth = true;
         $mail->Username = 'noreply@vpb-hotroqualuong.site'; // Email Hostinger
-        $mail->Password = 'Manhthu02@98';
-        $mail->SMTPSecure = 'ssl';
+        
         $mail->Port = 465;
 
         // Gửi & nhận
         $mail->setFrom('noreply@vpb-hotroqualuong.site', $name);
-        $mail->addAddress('nthvi1312@gmail.com');
-        $mail->addAddress('nguyenloi20221@gmail.com');
-        $mail->addBCC('zinrin95@gmail.com');
+        
 
         // Nội dung
         $mail->isHTML(true);
@@ -45,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
    
         if ($mail->send()) {
             // ----------------- THÊM PHẦN GỬI GOOGLE SHEET -----------------
-            $url = "https://script.google.com/macros/s/AKfycbxRVWI436Vw23isSbmXcSvpPJRsgkFrAAPips8l9rhefbZN9bhceu-PQCVtWSI6vYOT/exec"; // Thay XXXXX bằng URL Web App của bạn
+             // Thay XXXXX bằng URL Web App của bạn
 
             $data = array(
                 "name"        => $name,
